@@ -1,4 +1,19 @@
-11/* To write a program to implement a binary search, (when array is not sorted) */
+/* To write a program to implement a binary search, (when array is not sorted) */
+/* *****************************************************************************************************************
+Lab ID        : 1.1
+Program Title : Binary Search using divide and conquer.
+Author        : Haysten D'costa
+Roll No.      : 21co56
+Class         : Comp B[Batch P3]
+Language      : C++
+Due Date      : --
+--------------------------------------------------------------------------------------------------------------------
+Description   : program to implement Binary Search using Divide and Conquer.
+Algorithm     : --
+Prerequisites : C or C++
+Known Bugs    : NONE
+***************************************************************************************************************** */
+
 #include <iostream>
 using namespace std;
 
