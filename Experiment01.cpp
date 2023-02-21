@@ -1,4 +1,3 @@
-/* To write a program to implement a binary search, (when array is not sorted) */
 /* *****************************************************************************************************************
 Lab ID        : 1.1
 Program Title : Binary Search using divide and conquer.
