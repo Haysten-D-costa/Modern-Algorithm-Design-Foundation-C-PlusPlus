@@ -1,4 +1,4 @@
-/* To write a program to implement a binary search, (when array is not sorted) */
+11/* To write a program to implement a binary search, (when array is not sorted) */
 #include <iostream>
 using namespace std;
 
@@ -18,50 +18,50 @@ int main()
      for(int i=0; i<n; i++) {
           cin >> A[i];
      }
-     low = 0; 
+     low = 0;
      up = n-1;
      cout << endl << "Unsorted Array you entered : ";
      display(A, n);  //Displaying just to check saved values, in array...
-     bubbleSort(A, n);  
+     bubbleSort(A, n);
      cout << endl << "Sorted Array : ";
      display(A, n);  //Displaying just to check -i.e- display whether the array is sorted...
 
      cout << endl << "\n1 -> To search using BS 'Recursive method' "
           << endl << "2 -> To search using BS 'Iterative method' "
-          << endl << endl << "   ...Enter your choice : "; 
+          << endl << endl << "   ...Enter your choice : ";
      cin >> searchChoice;
-     switch(searchChoice) 
+     switch(searchChoice)
      {
           case 1: {
                cout << endl << "      Enter element to be searched : ";
                cin >> search;
-               int found = binarySearchRec(A, low, up, search); 
+               int found = binarySearchRec(A, low, up, search);
                if(found == -1) { cout << endl << "No such element found !"; }
                else{ cout << endl << "Element found at position "<< found+1 << "(index " << found << ")"; }
           }break;
           case 2: {
                cout << endl << "      Enter element to be searched : ";
                cin >> search;
-               int found = binarySearchRec(A, low, up, search); 
+               int found = binarySearchRec(A, low, up, search);
                if(found == -1) { cout << endl << "No such element found !"; }
                else{ cout << endl << "Element found at position "<< found+1 << "(index " << found << ")"; }
           }break;
-          default: cout << endl << "Invalid choice for search entered !"; 
+          default: cout << endl << "Invalid choice for search entered !";
      }
 
      return(0);
 }
-void display(int A[], int n) 
+void display(int A[], int n)
 {
      for(int i=0; i<n; i++) {
           cout << A[i] << "\t";
      }
 }
-void bubbleSort(int A[], int n) 
+void bubbleSort(int A[], int n)
 {
      for(int i=0; i<n; i++) {
           for(int j=0; j<n-1-i; j++) {
-               if(A[j] > A[j+1]) 
+               if(A[j] > A[j+1])
                {
                     int temp = A[j];
                     A[j] = A[j+1];
@@ -70,10 +70,10 @@ void bubbleSort(int A[], int n)
           }
      }
 }
-int binarysearchIte(int A[], int low, int up, int search) 
+int binarysearchIte(int A[], int low, int up, int search)
 {
      int mid = (low + up)/2;
-     while(low <= up) 
+     while(low <= up)
      {
           mid = (low + up)/2;
           if(search == A[mid]) { return(mid); }
