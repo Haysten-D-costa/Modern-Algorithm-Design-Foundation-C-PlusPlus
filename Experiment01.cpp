@@ -12,7 +12,6 @@ Algorithm     : --
 Prerequisites : C or C++
 Known Bugs    : NONE
 ***************************************************************************************************************** */
-
 #include <iostream>
 using namespace std;
 
