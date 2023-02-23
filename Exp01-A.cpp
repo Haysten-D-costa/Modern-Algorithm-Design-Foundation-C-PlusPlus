@@ -37,6 +37,7 @@ int main()
 
     if(found == -1) { cout << endl << "No such element present !"; }
     else { cout << endl << "Element found at position '" << found+1 << "' (index " << found << ") !"; }
+    cout << endl;
     return(0);
 }
 void bubbleSort(int A[], int n) {
@@ -67,6 +68,6 @@ int binarySearch(int A[], int n) {
     return(-1);
 }
 void display(int A[], int n) {
-    cout << "Array is : ";
+    cout << "Array is : \n";
     for(int i=0; i<n; i++) { cout << A[i] << "\t"; }
 }

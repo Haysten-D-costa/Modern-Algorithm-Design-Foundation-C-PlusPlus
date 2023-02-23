@@ -40,8 +40,9 @@ int main()
     cin >> key;
     found = binarySearch(A, low, high, key);
 
-    if(found == -1) { cout << endl << "\nNo such element present !"; }
+    if(found == -1) { cout << endl << "No such element present !"; }
     else { cout << endl << "Element found at position '" << found+1 << "' (index " << found << ") !"; }
+    cout << endl;
     return(0);
 }
 
