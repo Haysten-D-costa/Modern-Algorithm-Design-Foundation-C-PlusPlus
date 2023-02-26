@@ -16,11 +16,12 @@ Known Bugs    : NONE
 using namespace std;
 
 const int size = 20;
+int duplicate_entries[10];
 
 void display(int A[], int n); //Function displays the elements of the array passed to it...
 void bubbleSort(int A[], int n); //Function sorts the elements of the array passed, to apply binary search...
-int binarySearchRec(int A[], int low, int up, int search); //Searches for requested array using a 'Recursive approach'...
-int binarySearchIte(int A[], int low, int up, int search); //Searches for requested array using a 'Iterative approach'...
+void binarySearchRec(int A[], int low, int up, int search); //Searches for requested array using a 'Recursive approach'...
+void binarySearchIte(int A[], int low, int up, int search); //Searches for requested array using a 'Iterative approach'...
 
 int main()
 {
@@ -48,16 +49,18 @@ int main()
           case 1: {
                cout << endl << "      Enter element to be searched : ";
                cin >> search;
-               int found = binarySearchRec(A, low, up, search);
-               if(found == -1) { cout << endl << "No such element found !"; }
-               else{ cout << endl << "Element found at position "<< found+1 << "(index " << found << ")"; }
+               binarySearchRec(A, low, up, search);
+               // int found = binarySearchRec(A, low, up, search);
+               // if(found == -1) { cout << endl << "No such element found !"; }
+               // else{ cout << endl << "Element found at position "<< found+1 << "(index " << found << ")"; }
           }break;
           case 2: {
                cout << endl << "      Enter element to be searched : ";
                cin >> search;
-               int found = binarySearchRec(A, low, up, search);
-               if(found == -1) { cout << endl << "No such element found !"; }
-               else{ cout << endl << "Element found at position "<< found+1 << "(index " << found << ")"; }
+               binarySearchIte(A, low, up, search);
+               // int found = binarySearchIte(A, low, up, search);
+               // if(found == -1) { cout << endl << "No such element found !"; }
+               // else{ cout << endl << "Element found at position "<< found+1 << "(index " << found << ")"; }
           }break;
           default: cout << endl << "Invalid choice for search entered !";
      }
@@ -83,23 +86,34 @@ void bubbleSort(int A[], int n)
           }
      }
 }
-int binarysearchIte(int A[], int low, int up, int search)
+void binarySearchIte(int A[], int low, int up, int search)
 {
      int mid = (low + up)/2;
      while(low <= up)
      {
           mid = (low + up)/2;
-          if(search == A[mid]) { return(mid); }
+          if(search == A[mid]) { 
+               cout << endl << "Element found at position "<< mid+1 << "(index " << mid << ")"; 
+          }
           else if(search < A[mid]) { up = mid-1; }
           else { low = mid+1; }
      }
-     return(-1);
+     cout << endl << "No such element found !";
 }
-int binarySearchRec(int A[], int low, int up, int search)
+void binarySearchRec(int A[], int low, int up, int search)
 {
-     if(low > up) { return(-1); }
+     int count = 0;
+
+     if(low > up) { 
+          // return(-1); 
+          cout << endl << "No such element found !";
+          return;
+     }
      int mid = (low + up)/2;
-     if(search == A[mid]) { return(mid); }
+     if(search == A[mid]) { 
+          // return(mid); 
+          cout << endl << "Element found at position "<< mid+1 << "(index " << mid << ")";
+     }
      else if(search < A[mid]) { binarySearchRec(A, low, mid-1, search); }
      else { binarySearchRec(A, mid+1, up, search); }
 }
