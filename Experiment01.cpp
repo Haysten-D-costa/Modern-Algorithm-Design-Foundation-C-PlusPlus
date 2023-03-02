@@ -7,9 +7,9 @@ Class         : Comp B[Batch P3]
 Language      : C++
 Due Date      : --
 -----------------------------------------------------------------------------------------------------------------------------
-Description   : program to implement Binary Search using Divide and Conquer.
+Description   : Program to implement Binary Search algorithm using Divide and Conquer...
 Algorithm     : --
-Prerequisites : C or C++
+Prerequisites : C and C++
 Known Bugs    : NONE
 ********************************************************************************************************** */
 #include <iostream>
