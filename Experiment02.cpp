@@ -31,7 +31,7 @@ int main()
     }
     cout << endl << "Unsorted Array : "; display(A, n);
     sort(A, 0, n-1);
-    cout << endl << "Sorted Array :   "; display(A, n);
+    cout << endl << "Sorted Array   : "; display(A, n);
     cout << "\n\n";
 
     return(0);
@@ -42,7 +42,7 @@ void display(int A[], int n)
         cout << A[i] << "\t";
     }
 }
-void sort(int A[], int low, int up) 
+void sort(int A[], int low, int up)
 {
     if(low < up) {
         int mid = (low + up)/2;
@@ -56,7 +56,7 @@ void mergeSort(int A[], int low, int mid, int up)
     int i = low;
     int j = mid + 1;
     int k = low;
-    while((i <= mid) &&(j <= up)) 
+    while((i <= mid) &&(j <= up))
     {
         if(A[i] <= A[j]) {
             B[k] = A[i];
