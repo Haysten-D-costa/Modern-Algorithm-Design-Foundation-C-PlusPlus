@@ -1,26 +1,44 @@
 # include <iostream>
-# define INFINITY 9999
+# define I 9999 // Infinity value...
 
 using namespace std;
+void shortestPath(int Cost[][10], int Dist[], bool S[], int n);
 
 
-bool S[10];
-int n = 6, Dist[10];
+
 
 int main()
 {
-    int v = 0, u, w;
-    int Cost[10][10] = {
-        {INFINITY, 50, 45, 10, INFINITY, INFINITY},
-        {INFINITY, INFINITY, 10, 15, INFINITY, INFINITY},
-        {INFINITY, INFINITY, INFINITY, INFINITY, 30, INFINITY},
-        {20, INFINITY, INFINITY, INFINITY, 15, INFINITY},
-        {INFINITY, 20, 35, INFINITY, INFINITY, INFINITY},
-        {INFINITY, INFINITY, INFINITY, INFINITY, 3, INFINITY}
+    bool S[10];
+    int n = 6, Dist[10];
+
+    int Cost[10][10] = { /* Matrix : Example '01' Given by teacher...*/
+        {I , 50, 45, 10, I , I },
+        {I , I , 10, 15, I , I },
+        {I , I , I , I , 30, I },
+        {20, I , I , I , 15, I },
+        {I , 20, 35, I , I , I },
+        {I , I , I , I , 3 , I }
     };
+    // int Cost[10][10] = { /* Matrix : Example '02' Simply created...*/
+    // /*    0  1  2  3  4  5  6 */ 
+    // /*0*/{I, 3, I, 2, I, I, I },
+    // /*1*/{I, I, 2, I, I, I, I },
+    // /*2*/{I, I, I, I, I, I, 1 }, 
+    // /*3*/{1, I, I, I, 1, I, I },
+    // /*4*/{I, 5, I, 2, I, 3, I },
+    // /*5*/{I, I, 5, I, 6, I, I },
+    // /*6*/{I, I, I, I, I, 2, I }
+    // };
+    shortestPath(Cost, Dist, S, n);
+    cout << endl << endl;
+    return(0);
+}
+void shortestPath(int Cost[][10], int Dist[], bool S[], int n) 
+{
+    int v = 0, u, w; //Node -i.e- Vertice pointers...
 
-
-    for(int i=0; i<n; i++) {
+    for(int i=0; i<n; i++) { // Sets all nodes to be un-visited and Distance according to Cost...
         S[i] = false;
         Dist[i] = Cost[v][i];
     }
@@ -43,15 +61,13 @@ int main()
     }
     cout << endl << endl;
 
-
     // MAIN PROCEDURE (FINDING SHORTEST PATH)....
-
     for(int i=1; i<n; i++) {
         u = w;
         static int counter = 0;
         if(counter == 0) {
-            int temp_cost_v = INFINITY; //setting for temporary use...
-            for(int j=0; j<6; j++) { //SETS 'U' WRT 'V'...
+            int temp_cost_v = I; // Setting for temporary use...
+            for(int j=0; j<6; j++) { // Sets 'u' wrt 'v'...
 
                 if((S[j] != true) && (Cost[v][j] < temp_cost_v)) 
                 { 
@@ -64,9 +80,9 @@ int main()
         
         S[u] = true;
         
-        int temp_cost_w = INFINITY;
+        int temp_cost_w = I;
 
-        for(int k=0; k<n; k++) { //SETS 'U' WRT 'V'...
+        for(int k=0; k<n; k++) { // Sets 'w' wrt 'u'...
             if((S[k] != true) && (Cost[u][k] < temp_cost_w)) {
                 temp_cost_w = Cost[u][k];
                 w = k;
@@ -76,10 +92,14 @@ int main()
             Dist[w] = Dist[u] + Cost[u][w];
             cout << Dist[w] << endl;
         }
-        cout << "w = " << w << " ; v = " << v << endl; 
+        cout << "w = " << w << " ; v = " << v << endl; // Displaying the nodes selected as 'u' and 'w'...
     }
-    for(int i=0; i<n; i++) {
-        cout << "Distance from 0 -> " << i << " is " << Dist[i] << endl; 
+    cout << endl << endl;
+    for(int i=0; i<n; i++) { // To display the Distance array...
+        cout << "Distance from 0 -> " << i << " : " << Dist[i] << endl; 
     }
-    return(0);
+    cout << endl;
+    for(int i=0; i<n; i++) { // To display the Status array...
+        cout << "Status : " << S[i] << endl; 
+    }
 }
