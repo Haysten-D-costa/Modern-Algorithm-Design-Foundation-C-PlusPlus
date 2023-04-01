@@ -85,9 +85,9 @@ void shortestPath(int Cost[][10], int Dist[], bool S[], int n)
         }
         if(Dist[w] > Dist[u] + Cost[u][w]) {
             Dist[w] = Dist[u] + Cost[u][w];
-            cout << endl << "Edited shortest distance : " << Dist[w] << "  ";
+            cout << "Edited shortest distance : " << Dist[w] << "  ";
         }
-        cout << " { w = " << w << " ; u = " << u << " ; v = " << v << " }"; // Displaying the nodes selected as 'u' and 'w'...
+        cout << " { w = " << w << "; u = " << u << "; v = " << v << " }" << endl; // Displaying the nodes selected as 'u' and 'w'...
     }
     displayContent(Cost, Dist, S, n);
 }
