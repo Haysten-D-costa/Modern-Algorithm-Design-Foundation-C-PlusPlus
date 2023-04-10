@@ -1,3 +1,19 @@
+/* **********************************************************************************************************
+Lab ID        : 4.0
+Program Title : Pattern Matching Algorithm
+Author        : Haysten D'costa
+Roll No.      : 21co56
+Class         : Comp B[Batch P3]
+Language      : C++
+Due Date      :   -04-2023
+-------------------------------------------------------------------------------------------------------------
+Description   : Program to implement Pattern matching algorithm to check whether a given string contains a sub-string..
+Input         : -
+Output        : -
+Algorithm     : -
+Prerequisites : Basics of C and C++
+Known Bugs    : NONE
+********************************************************************************************************** */
 #include <iostream>
 using namespace std;
 

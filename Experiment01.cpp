@@ -1,5 +1,5 @@
 /* **********************************************************************************************************
-Lab ID        : 1.1
+Lab ID        : 1.0
 Program Title : Binary Search using divide and conquer.
 Author        : Haysten D'costa
 Roll No.      : 21co56
