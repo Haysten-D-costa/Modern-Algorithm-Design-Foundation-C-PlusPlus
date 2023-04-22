@@ -51,7 +51,7 @@ void knapsackTable(int no_items, int capacity, int profit[], int weight[], int T
     }
     for(int i=0; i<=no_items; i++) { // To diaplay the table....
         for(int j=0; j<=capacity; j++) {
-            cout << T[i][j] << "\t";
+            cout << T[i][j] << "\t";  
         }
         cout << endl;
     }
@@ -75,7 +75,8 @@ void selectItem(int no_items, int capacity, int profit[], int weight[],int T[][1
             i = i - 1;
         }
     }
-    cout << endl << "\n-> Optimal solution : ( ";
+    cout << endl << "\n-> Maximim profit   : " << T[no_items][capacity];  
+    cout << endl << "-> Optimal solution : ( ";
     for(int i=1; i<=no_items; i++) {
         cout << optimal_solution[i] << "\t";
     }
