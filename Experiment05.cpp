@@ -38,7 +38,6 @@ int main()
         {I , I , I , 3 , 1 , 2 , I , 6 }, 
         {I , I , I , I , I , 3 , 6 , I }
     };
-
     // int Cost[10][10] = { /* Matrix : Example '01' Given by teacher... VERIFIED*/
     //     {I , 50, 45, 10, I , I },
     //     {I , I , 10, 15, I , I },
@@ -67,7 +66,7 @@ void displayContent(int Cost[][10], int Distance[], bool S[], int n)
     }
     cout << endl;
     for(int i=0; i<n; i++) { // To display the Distanceance array...
-        cout << "Shortest Path from 0 -> " << i << " : " << Distance[i] << endl; 
+        cout << "Shortest Distance from 0 -> " << i << " : " << Distance[i] << endl; 
     }
     cout << endl;
     for(int i=0; i<n; i++) { // To display the Status array...
@@ -75,30 +74,30 @@ void displayContent(int Cost[][10], int Distance[], bool S[], int n)
     }
     cout << endl << endl;
 }
-void shortestPath(int Cost[][10], int Distance[], bool S[], int n) // DOESNT WORK DO ENTIRE AGAIN...
+void shortestPath(int Cost[][10], int Distance[], bool S[], int n) // Done by me...
 {
-    int v=0, u;
+    int v=0, u; 
     for(int i=0; i<n; i++) {
         Distance[i] = I;
         S[i] = false;
     }
-    Distance[v] = 0;
+    Distance[v] = 0; // Setting distance of source node to '0'...
     
     for(int i=0; i<n; i++) 
     {
         int temp_cost = I;
-        for(int j=0; j<n; j++) {
+        for(int j=0; j<n; j++) { // This will select vertex which is 'unvisited' and has 'minimum distance'...
             if((!S[j]) && (Distance[j]) < temp_cost) {
                 temp_cost = Distance[j];
                 u = j;
             }
         }
         S[u] = true;
-        for(int j=0; j<n; j++) {
+        for(int j=0; j<n; j++) { // This will update distance of each vertex from the selected source vertex(u), except it will not update its own distance, from itself(-i.e- it'll continue)...
             if(j == u) { continue; }
             else if((Distance[u] + Cost[u][j]) < Distance[j]) { Distance[j] = Distance[u] + Cost[u][j]; }
         }
-        for(int i=0; i<n; i++) { // To display the Distanceance array...
+        for(int i=0; i<n; i++) { // Displays the distances updated at each pass... 
                 if(i == 0) {
                     cout << endl << "Distances updated from " << u << " :" << endl;
                 }
@@ -107,8 +106,7 @@ void shortestPath(int Cost[][10], int Distance[], bool S[], int n) // DOESNT WOR
     }
     displayContent(Cost, Distance, S, n);
 }
-
-void shortestPath01(int Cost[][10], int Distance[], bool S[], int n) {
+void shortestPath01(int Cost[][10], int Distance[], bool S[], int n) { // From online(Lectures)...
 
     for(int i=0; i<n; i++) { // Setting all Distanceances to infinity and status to unvisited...
         Distance[i] = I;
@@ -121,7 +119,6 @@ void shortestPath01(int Cost[][10], int Distance[], bool S[], int n) {
         for(int i=0; i<n; i++) {
             if(!S[i] && (minVertex == -1 || Distance[i] < Distance[minVertex])) {
                 minVertex = i; 
-                cout << "HERE : " << minVertex << endl;
             }
         }
         S[minVertex] = true;
