@@ -20,7 +20,6 @@ Known Bugs    : NONE
 using namespace std;
 
 void shortestPath(int Cost[][10], int Distance[], bool S[], int n);   // Function to find shortest path from initial node(0) to others...
-void shortestPath01(int Cost[][10], int Distance[], bool S[], int n); // Function to find shortest path from initial node(0) to others...
 void displayContent(int Cost[][10], int Distance[], bool S[], int n); // Function to display the Cost, Distanceance and Status (matrx and arrays)....
 
 int main()
@@ -65,21 +64,18 @@ void displayContent(int Cost[][10], int Distance[], bool S[], int n)
         cout << endl;
     }
     cout << endl;
-    for(int i=0; i<n; i++) { // To display the Distanceance array...
-        cout << "Shortest Distance from 0 -> " << i << " : " << Distance[i] << endl; 
-    }
-    cout << endl;
     for(int i=0; i<n; i++) { // To display the Status array...
         cout << "Status '" << i << "' : " << S[i] << endl; 
     }
-    cout << endl << endl;
 }
 void shortestPath(int Cost[][10], int Distance[], bool S[], int n) // Done by me...
 {
-    int v=0, u; 
+    int v=0, u;
+    string path[n];
     for(int i=0; i<n; i++) {
         Distance[i] = I;
         S[i] = false;
+        path[i] = to_string(v);
     }
     Distance[v] = 0; // Setting distance of source node to '0'...
     
@@ -91,44 +87,23 @@ void shortestPath(int Cost[][10], int Distance[], bool S[], int n) // Done by me
                 temp_cost = Distance[j];
                 u = j;
             }
+            
         }
         S[u] = true;
         for(int j=0; j<n; j++) { // This will update distance of each vertex from the selected source vertex(u), except it will not update its own distance, from itself(-i.e- it'll continue)...
             if(j == u) { continue; }
-            else if((Distance[u] + Cost[u][j]) < Distance[j]) { Distance[j] = Distance[u] + Cost[u][j]; }
-        }
-        for(int i=0; i<n; i++) { // Displays the distances updated at each pass... 
-                if(i == 0) {
-                    cout << endl << "Distances updated from " << u << " :" << endl;
-                }
-                cout << i << " : " << Distance[i] << endl;
+            else if((Distance[u] + Cost[u][j]) < Distance[j]) { 
+                Distance[j] = Distance[u] + Cost[u][j]; 
+                path[j] = path[u] + " -> " + to_string(j);
             }
+        }
     }
-    displayContent(Cost, Distance, S, n);
-}
-void shortestPath01(int Cost[][10], int Distance[], bool S[], int n) { // From online(Lectures)...
-
-    for(int i=0; i<n; i++) { // Setting all Distanceances to infinity and status to unvisited...
-        Distance[i] = I;
-        S[i] = false;
-    }
-    Distance[0] = 0; // Since no self loop...  
-    
+    displayContent(Cost, Distance, S, n); cout << endl;
+    cout << "Src" << "\t" << "Destn" << "\t" << "MinCost" << "\t" << "Path" << "\t" << endl;
     for(int i=0; i<n; i++) {
-        int minVertex = -1;
-        for(int i=0; i<n; i++) {
-            if(!S[i] && (minVertex == -1 || Distance[i] < Distance[minVertex])) {
-                minVertex = i; 
-            }
-        }
-        S[minVertex] = true;
-        for(int j=0; j<n; j++) {
-            if(Cost[minVertex][j] != 0 && !S[j]) {
-                if(Distance[minVertex] + Cost[minVertex][j] < Distance[j]) {
-                    Distance[j] = Distance[minVertex] + Cost[minVertex][j];
-                }
-            }
-        }
+        cout << v << "\t";
+        cout << i << "\t";
+        if(Distance[i] == I)     cout << '-' << "\t" << '-' << endl;
+        else cout << Distance[i] << "\t" << path[i] << endl;
     }
-    displayContent(Cost, Distance, S, n);
 }
