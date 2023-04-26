@@ -24,8 +24,8 @@ void longestCommonSequence(string S1, string S2, int len1, int len2)
          << endl << "-> String 2 : " << S2 << endl << endl;
     
     int LCS[len1 + 1][len2 + 1];
-
-	for (int i = 0; i <= len1; i++) {
+	cout <<  "LCS MATRIX : \n\n(*)  ";
+	for (int i=0; i<=len1; i++) {
 		for (int j = 0; j <= len2; j++) {
 			if (i == 0 || j == 0)
 				LCS[i][j] = 0;
@@ -35,8 +35,12 @@ void longestCommonSequence(string S1, string S2, int len1, int len2)
 				LCS[i][j] = max(LCS[i - 1][j], LCS[i][j - 1]);
 		}
 	}
+	for(int i=0; i<=len2; i++) { cout << S2[i-1] << " "; } // Display first string(array indices)...
+	cout << endl << endl;
 
     for(int i=0; i<=len1; i++) {
+		if(i > 0) { cout << S1[i-1] << "   "; }
+		else cout << "    ";
         for(int j=0; j<=len2; j++) {
             cout << LCS[i][j] << " ";
         }
@@ -63,7 +67,7 @@ void longestCommonSequence(string S1, string S2, int len1, int len2)
 		else
 			j--;
 	}
-	cout << endl << "-> LCS of " << S1 << " and " << S2 << " is " << lcs;
+	cout << endl << "-> LCS of " << S1 << " and " << S2 << " is " << "'" << lcs << "'";
     cout << endl << "-> Length of the longest common subsequence is : " << LCS[len1][len2] << endl << endl;
 }
 int main()
