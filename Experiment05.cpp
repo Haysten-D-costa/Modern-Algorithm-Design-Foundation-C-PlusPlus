@@ -24,19 +24,21 @@ void displayContent(int Cost[][10], int Distance[], bool S[], int n); // Functio
 
 int main()
 {
-    bool S[10];
-    int n = 8, Distance[10];
+    int n;
+    cout << "Enter the number of vertices/nodes : "; cin >> n;
+    bool S[n];
+    int Cost[n][n], Distance[n];
     
-    int Cost[10][10] = {  /* matrix : Example '02' Given by math sir...*/
-        {I , 8 , 2 , 5 , I , I , I , I }, 
-        {8 , I , I , 2 , I , 13, I , I }, 
-        {2 , I , I , 2 , 5 , I , I , I }, 
-        {5 , 2 , 2 , I , 1 , 6 , 3 , I }, 
-        {I , I , 5 , 1 , I , I , 1 , I }, 
-        {I , 13, I , 6 , I , I , 2 , 3 }, 
-        {I , I , I , 3 , 1 , 2 , I , 6 }, 
-        {I , I , I , I , I , 3 , 6 , I }
-    };
+    // int Cost[10][10] = {  /* matrix : Example '02' Given by math sir...*/
+    //     {I , 8 , 2 , 5 , I , I , I , I }, 
+    //     {8 , I , I , 2 , I , 13, I , I }, 
+    //     {2 , I , I , 2 , 5 , I , I , I }, 
+    //     {5 , 2 , 2 , I , 1 , 6 , 3 , I }, 
+    //     {I , I , 5 , 1 , I , I , 1 , I }, 
+    //     {I , 13, I , 6 , I , I , 2 , 3 }, 
+    //     {I , I , I , 3 , 1 , 2 , I , 6 }, 
+    //     {I , I , I , I , I , 3 , 6 , I }
+    // };
     // int Cost[10][10] = { /* Matrix : Example '01' Given by teacher... VERIFIED*/
     //     {I , 50, 45, 10, I , I },
     //     {I , I , 10, 15, I , I },
@@ -45,6 +47,10 @@ int main()
     //     {I , 20, 35, I , I , I },
     //     {I , I , I , I , 3 , I }
     // };
+    cout << endl << "Enter the Cost matrix : " << endl;
+    for(int i=0; i<n; i++) {
+        for(int j=0; j<n; j++) { cin >> Cost[i][j]; }
+    }
     shortestPath(Cost, Distance, S, n); // Calls function to find the shortest paths...
     cout << endl << endl;
 
