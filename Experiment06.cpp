@@ -18,6 +18,7 @@ Known Bugs    : NONE
 using namespace std;
 
 int max(int item1, int item2); // Function to find max of two items...
+int knapSackRecursive(int weight[], int profit[], int n, int Capacity); //todo Check this later...
 void knapsackTable(int n, int capacity, int profit[], int weight[], int T[][10]); // Function to compute the knapsack table...
 void selectItem(int no_items, int capacity, int profit[], int weight[],int T[][10]);
 
@@ -30,6 +31,8 @@ int main()
     int T[10][10]; // Knapsack table...
 
     knapsackTable(no_items, capacity, profit, weight, T);
+    // cout << knapSackRecursive(weight, profit, no_items, capacity);
+
     selectItem(no_items, capacity, profit, weight, T);
 
     return(0);
@@ -76,9 +79,24 @@ void selectItem(int no_items, int capacity, int profit[], int weight[],int T[][1
         }
     }
     cout << endl << "\n-> Maximim profit   : " << T[no_items][capacity];  
-    cout << endl << "-> Optimal solution : ( ";
+    cout << endl << "-> Optimal solution : (     ";
     for(int i=1; i<=no_items; i++) {
-        cout << optimal_solution[i] << "\t";
+        cout << optimal_solution[i] << "     ";
     }
     cout << ")" << endl;
+}
+int knapSackRecursive(int weight[], int profit[], int n, int Capacity) {
+
+    if(n == 0 || Capacity == 0) {
+        return(0);
+    }
+    if(weight[n-1] > Capacity) {
+        return(weight, profit, n-1, Capacity);
+    }
+    return(
+        max(
+            knapSackRecursive(weight, profit, n-1, Capacity + weight[n-1])+(profit[n-1]),
+            knapSackRecursive(weight, profit, n-1, Capacity)
+        )
+    );
 }
