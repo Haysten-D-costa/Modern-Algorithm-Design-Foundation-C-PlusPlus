@@ -67,17 +67,13 @@ void mergeSort(int A[], int low, int mid, int up)
             j++; k++;
         }
     }
-    if(i > mid) {
-        while(j <= up) {
-            B[k] = A[j];
-            j++; k++;
-        }
+    while(j <= up) {
+        B[k] = A[j];
+        j++; k++;
     }
-    else {
-        while(i <= mid) {
-            B[k] = A[i];
-            i++; k++;
-        }
+    while(i <= mid) {
+        B[k] = A[i];
+        i++; k++;
     }
     for(int i=low; i<=up; i++) {
         A[i] = B[i];
