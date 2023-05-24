@@ -15,88 +15,78 @@ Prerequisites : Basics of C and C++
 Known Bugs    : NONE
 ********************************************************************************************************** */
 #include <iostream>
-#include <limits.h>
-using namespace std;
+#define INFINITY 999
+#define MAX 20
 
-int n = 4;
-int p[10] = {2, 3, 1, 2};
-int q[10] = {2, 2, 1, 1, 2};
-int weight[10][10], cost[10][10], root[10][10];
+int n; // Number of nodes
+int W[MAX][MAX]; // Weight matrix
+int C[MAX][MAX]; // Cost matrix
+int R[MAX][MAX]; // Root matrix
+int P[MAX];      // Probabilities of successful search
+int Q[MAX];      // Probabilities of unsuccessful search
 
-void optimalBST();
-int find(int i, int j);
-void display(int A[][10], int n);
-
-int main() {
-
-    optimalBST();
-    return(0);
-}
-void display(int A[][10], int n) {
-    for(int i=0; i<=n; i++) 
-    {
-        for(int j=0; j<=n; j++) 
-        {
-            // cout << A[i][j] << " ";
-            if(j < i) {
-                cout << "-" << " ";
-            }
-            else {
-                cout << A[i][j] << " ";
-            }
+// Function to print a matrix
+void display(int matrix[MAX][MAX])
+{
+    for (size_t i{0}; i<=n; i++) {
+        for (size_t j{i}; j<=n; j++) {
+            std::cout << matrix[i][j] << " ";
         }
-        cout << endl;
+        std::cout << std::endl;
     }
 }
-void optimalBST() {
-
-    for(int i=0; i<n; i++) 
-    {
-        weight[i][i] = q[i];
-        cost[i][i] = 0;
-        root[i][i] = 0;
-
-        weight[i][i+1] = q[i] + q[i+1] + p[i+1];
-        root[i][i+1] = i + 1;
-        cost[i][i+1] = q[i] + q[i+1] + p[i+1];
+void optimalBST()
+{
+    int min, min_preorderIndex;
+    // Initialization
+    for (size_t i{0}; i<=n; i++) {
+        W[i][i] = Q[i];
+        C[i][i] = 0;
+        R[i][i] = 0;
     }
-    weight[n][n] = q[n];
-    root[n][n] = 0;
-    cost[n][n] = 0;
-
-    // display(cost, n);
-    // display(root, n);
-    // display(weight, n);
-    for(int m=2; m<=n; m++) {
-        for(int i=0; i<=n-m; i++) 
-        {
-            int j = i + m;
-            weight[i][j] = weight[i][j-1] + p[j] + q[j];
-
-            int k = find(i, j);
-            cost[i][j] = weight[i][j] + (cost[i][k-1] + cost[k][j]);
-            root[i][j] = k;
+    // I-Weighted Matrix
+    for (size_t i{1}; i<=n; i++) {
+        for (size_t j{0}; j<=n-i; j++) {
             
-            // display(weight, n); cout << endl;
-            // display(cost, n); cout << endl;
-            // display(root, n); cout << endl;
+            W[j][j+i] = P[j+i-1] + Q[j+i] + W[j][j+i-1]; // Calculate the weight of the sub-tree rooted at node j
         }
     }
-    display(weight, n); cout << endl;
-    display(cost, n); cout << endl;
-    display(root, n); cout << endl;
+    // II-Cost Matrix and Root Matrix
+    for (size_t i{1}; i<=n; i++) {
+        for (size_t j{0}; j<=n-i; j++) {
+            
+            min = INFINITY;
+            for (size_t k{j+1}; k<=j+i; k++) {
+                
+                // Find the minimum cost of all possible sub-trees rooted at node j
+                if (C[j][k-1] + C[k][j+i] < min) {
+                    min = C[j][k-1] + C[k][j+i];
+                    min_preorderIndex = k;
+                }
+            }
+            C[j][j+i] = min + W[j][j+i]; // Calculate the cost of the sub-tree rooted at node j
+            R[j][j+i] = min_preorderIndex; // Record the root of the sub-tree rooted at node j
+        }
+    }
+    // Print the weight, cost, and root matrices
+    std::cout << std::endl << "-> Weight Matrix : " << std::endl; display(W);
+    std::cout << "-> Cost Matrix : " << std::endl; display(C);
+    std::cout << "-> Root Matrix : " << std::endl; display(R);
+    std::cout << "-> Final Cost is : " << C[0][n] << std::endl;
 }
-int find(int i, int j) {
-
-    int l;
-    int min = INT_MAX;
-    for(int m=root[i][j-1]; m<=root[i+1][j]; ++m) 
-    {
-        if((cost[i][m-1] + cost[m][j]) < min) 
-        {
-            min = cost[i][m-1] = cost[m][j];
-            l = m;
-        }
+int main()
+{
+    std::cout << std::endl << "Enter no. of nodes in BST : ";
+    std::cin >> n;
+    std::cout << "Enter the Probabilities of Successful Search : ";
+    for (size_t i{0}; i<n; i++) {
+        std::cin >> P[i];
     }
-    return (l);
+    std::cout << "Enter the Probabilities of Unsuccessful Search : ";
+    for (size_t i{0}; i<=n; i++) {
+        std::cin >> Q[i];
+    }
+    optimalBST();
+
+    return 0;
 }
