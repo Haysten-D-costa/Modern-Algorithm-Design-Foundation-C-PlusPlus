@@ -56,14 +56,14 @@ void binarySearch_Iterative(int* A, int low, int up, int key) {
 }
 void binarySearch_Recursive(int* A, int low, int up, int key) {
 
-    int count{0};
+    int count {0};
     if(low > up) {
         std::cout << "No such element found ! " << std::endl;
         return;
     }
     int mid = (low + up) / 2;
     if(key == A[mid]) {
-        std::cout << "Element found at position " << mid + 1 << " (index " << mid << ")" << std::endl;
+        std::cout << "Element found at position " << (mid + 1) << " (index " << (mid) << ")" << std::endl;
     }
     else if(key < A[mid]) {
         binarySearch_Recursive(A, low, mid-1, key);
