@@ -29,7 +29,7 @@ int Q[MAX];      // Probabilities of unsuccessful search
 void display(int matrix[MAX][MAX])
 {
     for (size_t i{0}; i<=n; i++) {
-        for (size_t j{i}; j<=n; j++) {
+        for (size_t j{0}; j<=n; j++) {
             std::cout << matrix[i][j] << " ";
         }
         std::cout << std::endl;
