@@ -1,6 +1,6 @@
 #include <iostream>
 #define MAX 20
-
+ 
 void mergeSort(int* A, int low, int high) {
     if(low < high) 
     {

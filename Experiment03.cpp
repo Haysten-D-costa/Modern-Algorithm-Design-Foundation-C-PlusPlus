@@ -5,7 +5,7 @@ Author        : Haysten D'costa
 Roll No.      : 21co56
 Class         : Comp B[Batch P3]
 Language      : C++
-Due Date      : 00-03-2023
+Due Date      : 00-03-2023 
 Description   : Program to implement Quick sort algorithm...
 ------------------------------------------------------------
 Input  :

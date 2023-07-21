@@ -1,5 +1,5 @@
 #include <iostream>
-
+ 
 int LCS[10][10] {0};
 void findString(int LCS[][10], std::string S1, std::string S2, int len1, int len2) {
 

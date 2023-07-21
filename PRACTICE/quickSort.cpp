@@ -1,6 +1,6 @@
 #include <iostream>
 #define MAX 10
-
+ 
 void quickSort(int* A, int low, int high) {
 
     int start = low;

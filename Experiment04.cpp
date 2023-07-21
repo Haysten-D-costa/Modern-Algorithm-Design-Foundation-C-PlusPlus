@@ -5,7 +5,7 @@ Author        : Haysten D'costa
 Roll No.      : 21co56
 Class         : Comp B[Batch P3]
 Language      : C++
-Due Date      :   -04-2023
+Due Date      :   -04-2023 
 -------------------------------------------------------------------------------------------------------------
 Description   : Program to implement Pattern matching algorithm to check whether a given string contains a sub-string..
 Input         : 

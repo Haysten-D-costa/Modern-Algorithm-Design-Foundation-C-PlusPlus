@@ -1,6 +1,6 @@
 #include <iostream>
 #define MAX 10
-
+ 
 int m = 2;
 int n = 4;
 int x[MAX] {0};

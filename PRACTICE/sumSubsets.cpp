@@ -1,6 +1,6 @@
 #include <iostream>
 #define MAX 10
-
+ 
 int n = 4;
 int totalSum = 0;
 int capacity = 25;

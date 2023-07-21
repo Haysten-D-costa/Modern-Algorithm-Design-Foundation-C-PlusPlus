@@ -1,7 +1,7 @@
 #include <iostream>
 #define MAX 10
 #define I 999
-
+ 
 void shortestPath(int cost[][MAX], int distance[], bool selected[], int n) {
 
     int u, v = 0;

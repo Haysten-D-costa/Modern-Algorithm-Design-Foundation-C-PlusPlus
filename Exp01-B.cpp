@@ -4,7 +4,7 @@ Program Title : Binary Search using divide and conquer.
 Author        : Haysten D'costa
 Roll No.      : 21co56
 Class         : Comp B[Batch P3]
-Language      : C++
+Language      : C++ 
 Due Date      : --
 --------------------------------------------------------------------------------------------------------------------
 Description   : program to implement Binary Search using Divide and Conquer.(Method 02 : Recursive approach.)

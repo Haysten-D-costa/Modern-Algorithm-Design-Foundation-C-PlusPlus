@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cstring>
-
+ 
 int subString(std::string S1, std::string S2) {
     
     int len1 = S1.length();
