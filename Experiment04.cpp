@@ -8,58 +8,39 @@ Language      : C++
 Due Date      :   -04-2023
 -------------------------------------------------------------------------------------------------------------
 Description   : Program to implement Pattern matching algorithm to check whether a given string contains a sub-string..
-Input         : -
-Output        : -
+Input         : 
+                S1 = HAYSTEN and S2 = TEN
+Output        : Matched at index '4'
 Algorithm     : -
 Prerequisites : Basics of C and C++
 Known Bugs    : NONE
 ********************************************************************************************************** */
 #include <iostream>
-using namespace std;
+#include <cstring>
 
-void display(char A[], int n);
-void searchString(char A[], char B[], int n, int m);
-
-int main()
-{
-    int n, m;
-    char A[100], B[100];
-    cout << endl << "Enter the size of main array : "; cin >> n;
-    cout << "Enter '" << n << "' characters for the main array : ";
-    for(int i=0; i<n; i++) {
-        cin >> A[i];
-    }
-    cout << endl << "Enter the size of string to be searched : "; cin >> m;
-    cout << "Enter '" << m << "' characters for the search string : ";
-    for(int i=0; i<m; i++) {
-        cin >> B[i];
-    }
-    cout << endl << "Main array    : "; display(A, n); cout << "\n";
-    cout << "Search string : "; display(B, m);
-    cout << "\n\n";
-    searchString(A, B, n, m);
-
-    return(0);
-}
-
-void display(char String[], int range) {
-    for(int i=0; i<range; i++) { cout << String[i] << "\t"; }
-}
-void searchString(char A[], char B[], int n, int m) {
-    int found = 0;
+int subString(std::string S1, std::string S2) {
     
-    for(int i=0; i<=n-m; i++) 
-    {
+    int len1 = S1.length();
+    int len2 = S2.length();
+
+    int flag = 0;
+    for(int i{0}; i<=len1-len2; i++) {
+
         int j = 0;
-        while((j < m) && (B[j] == A[i+j])) {
-            j++;
-        }
-        if(j == m) {
-            cout << "String found at position '" << i+1 << "' (Index " << i << ")" << endl;
-            found = 1;
+        while((j < len2) && (S2[j] == S1[i + j])) { j++; }
+        if(j == len2) {
+            flag = 1;
+            return i;
         }
     }
-    if(found != 1) {
-        cout << endl << "No such string found in main array... " << endl;
-    }
+    return -1;
+}
+
+int main() {
+    std::string S1;
+    std::string S2;
+    std::cout << "Enter two strings : ";
+    std::cin >> S1 >> S2;
+    std::cout << std::endl << "Matched at index  : " << subString(S1, S2);
+    return 0;
 }

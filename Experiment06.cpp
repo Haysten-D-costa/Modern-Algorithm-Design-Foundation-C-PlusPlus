@@ -8,8 +8,26 @@ Language      : C++
 Due Date      :   -04-2023
 -------------------------------------------------------------------------------------------------------------
 Description   : Program to implement 0/1(binary), Knapsack Program algorithm...
-Input         : -
-Output        : -
+Input         : --------------------------------------------------------------
+    -> n = 4
+    -> capacity = 5
+    -> weights  = 0 2 1 3 2
+    -> profits  = 0 12 10 20 15....
+Output  : --------------------------------------------------------------------
+            KnapSack (Profit)Table generated : 
+            0       0       0       0       0       0
+            0       0       12      12      12      12
+            0       10      12      22      22      22
+            0       10      12      22      30      32
+            0       10      15      25      30      37
+
+            -> Item '4' added to Knapsack...
+            -> Item '2' added to Knapsack...
+            -> Item '1' added to Knapsack...
+
+            -> Maximim profit   : 37
+            -> Optimal solution : (     1     1     0     1     ) <== soln Vctr
+-------------------------------------------------------------------------------
 Algorithm     : -
 Prerequisites : Basics of C and C++
 Known Bugs    : NONE

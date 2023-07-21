@@ -6,10 +6,17 @@ Roll No.      : 21co56
 Class         : Comp B[Batch P3]
 Language      : C++
 Due Date      :   -05-2023
-------------------------------------------------------------------------------------------------------------
 Description   : Program to implement Sub of subsets problem using Backtracking...
-Input         : No. of items, item(weights), total capacity...
-Output        : Solution vector / vectors...
+------------------------------------------------------------------------------------------------------------
+Input : No. of items, item(weights), total capacity...
+        -> n = 4
+        -> capacity = 25
+        -> items(array/set) = 10 25 5 10
+Output : 
+        -> The Solution Vectors are : 
+                1   0   1   1   
+                0   1   0   0
+------------------------------------------------------------------------------------------------------------
 Algorithm     : -
 Prerequisites : Basics of C and C++
 Known Bugs    : NONE

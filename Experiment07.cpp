@@ -8,8 +8,29 @@ Language      : C++
 Due Date      :   -04-2023
 ------------------------------------------------------------------------------------------------------------
 Description   : Program to implement Longest common subsequence algorithm...
-Input         : Two strings to be compared...
-Output        : LCS Matrix, LCS string and Length of string...
+Input         : Two strings to be compared...------------------------------
+	-> HAYSTEN, KISHAN
+Output        : -----------------------------------------------------------
+				LCS Matrix, LCS string and Length of string...
+				-> String 1 : HAYSTEN
+				-> String 2 : KISHAN
+
+				LCS MATRIX : 
+
+				(*)   K I S H A N 
+
+				    0 0 0 0 0 0 0 
+				H   0 0 0 0 1 1 1 
+				A   0 0 0 0 1 2 2 
+				Y   0 0 0 0 1 2 2 
+				S   0 0 0 1 1 2 2 
+				T   0 0 0 1 1 2 2 
+				E   0 0 0 1 1 2 2 
+				N   0 0 0 1 1 2 3 
+
+				-> LCS of HAYSTEN and KISHAN is 'HAN'
+				-> Length of the longest common subsequence is : 3
+----------------------------------------------------------------------------
 Algorithm     : -
 Prerequisites : Basics of C and C++
 Known Bugs    : NONE

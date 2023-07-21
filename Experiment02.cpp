@@ -6,8 +6,15 @@ Roll No.      : 21co56
 Class         : Comp B[Batch P3]
 Language      : C++
 Due Date      : --
------------------------------------------------------------------------------------------------------------------------------
 Description   : Program to implement Merge Sort algorithm using Divide and Conquer...
+-------------------------------------------------------------------------------------
+Input  :
+    -> n = 5
+    -> array = 8 0 6 2 4 
+Output : 
+    Unsorted Array : 8      0       6       2       4
+    Sorted Array   : 0      2       4       6       8
+-------------------------------------------------------------------------------------
 Algorithm     : --
 Prerequisites : C and C++
 Known Bugs    : NONE

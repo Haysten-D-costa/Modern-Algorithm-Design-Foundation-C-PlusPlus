@@ -6,10 +6,15 @@ Roll No.      : 21co56
 Class         : Comp B[Batch P3]
 Language      : C++
 Due Date      : 00-03-2023
--------------------------------------------------------------------------------------------------------------
 Description   : Program to implement Quick sort algorithm...
-Input         : -
-Output        : -
+------------------------------------------------------------
+Input  :
+    -> n = 5
+    -> array = 8 0 6 2 4 
+Output : 
+    Unsorted Array : 8      0       6       2       4
+    Sorted Array   : 0      2       4       6       8
+------------------------------------------------------------
 Algorithm     : -
 Prerequisites : Basics of C and C++
 Known Bugs    : NONE

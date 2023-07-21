@@ -8,8 +8,17 @@
 ? Due Date      :   -05-2023
 ------------------------------------------------------------------------------------------------------------
 ? Description   : Program to implement Graph colouring algorithm using backtracking....
-? Input         : -
-? Output        : 
+? Input         : 
+?       -> n = 4
+?       -> m(colors) = 2
+?       -> adjMatrix = 0 1 0 1
+?                      1 0 1 0
+?                      0 1 0 1
+?                      1 0 1 0
+? Output   : 
+?       Possible solutions : 
+?           ->  (  1  2  1  2  )
+?           ->  (  2  1  2  1  )
 ? Algorithm     : -
 ? Prerequisites : Basics of C and C++
 ? Known Bugs    : NONE
